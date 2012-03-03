@@ -1,0 +1,17 @@
+
+alias ls='ls --color=auto'
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias mutt='echo -ne "\033]0;mutt:${USER}@`hostname`\007";mutt'
+
+alias NewMailboxes="find ~/Maildir/ -name '*:2,' -exec dirname {} \; | uniq"
+
+alias newmail="vim -c 'set textwidth=75' -c 'set filetype=mail'"
+
+#vim:ft=zsh
