@@ -22,7 +22,10 @@ precmd() {
 
 autoload -U colors && colors
 
-PS1="%{$fg_bold[green]%}%n@%m%{$reset_color%}%(1v. $fg_bold[red]%1v%f.)$PSEXTRA %{$fg_bold[yellow]%}%~ %{$reset_color%}%% "
+setopt prompt_subst
+
+PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v$PSEXTRA%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
+RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
 
 
 
