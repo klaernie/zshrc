@@ -20,4 +20,10 @@ precmd() {
 [[ "${PS1:-}" = '%m%# ' ]] && PS1="%m:%(1v.%F{red}%1v%f:.)$PSEXTRA%~%# "
 
 
+autoload -U colors && colors
+
+PS1="%{$fg_bold[green]%}%n@%m%{$reset_color%}%(1v. $fg_bold[red]%1v%f.)$PSEXTRA %{$fg_bold[yellow]%}%~ %{$reset_color%}%% "
+
+
+
 # vim:ft=zsh
