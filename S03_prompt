@@ -10,22 +10,38 @@ zstyle ':vcs_info:*' actionformats  "[%b|%a]"
 zstyle ':vcs_info:*' stagedstr      "!"
 zstyle ':vcs_info:*' unstagedstr    "?"
 
-precmd() {
+function title {
+  if [[ $TERM == "screen" ]]; then
+    # Use these two for GNU Screen:
+    print -nR $'\033k'$1$'\033'\\
+
+    print -nR $'\033]0;'$2$'\a'
+  elif [[ $TERM == "xterm" || $TERM == "rxvt" ]]; then
+    # Use this one instead for XTerms:
+    print -nR $'\033]0;'$*$'\a'
+  fi
+}
+
+function precmd() {
+  title zsh "$PWD"
+
   psvar=()
 
   vcs_info
   [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-[[ "${PS1:-}" = '%m%# ' ]] && PS1="%m:%(1v.%F{red}%1v%f:.)$PSEXTRA%~%# "
-
-
-autoload -U colors && colors
+function preexec {
+  emulate -L zsh
+  local -a cmd; cmd=(${(z)1})
+  title $cmd[1]:t "$cmd[2,-1]"
+}
 
 setopt prompt_subst
 
-PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v$PSEXTRA%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
+PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
 RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
+
 
 
 
