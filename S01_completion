@@ -48,8 +48,4 @@ setopt always_to_end
 # correct the command if mistyped
 setopt correct
 
-# xmms2 needs a bit of manual help.
-_xmms2_radd() { _files }
-
-
-#vim: ft=zsh
+# vim: ft=zsh
