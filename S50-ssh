@@ -1,0 +1,26 @@
+# zshrc/parts.d/50-ssh
+#
+# ssh configuration for zsh
+#
+# Copyright © 2008 martin f. krafft <madduck@madduck.net>
+# Released under the terms of the Artistic Licence 2.0
+#
+# Source repository: git://git.madduck.net/etc/ssh.git
+#
+
+# populate hosts completion with SSH's known_hosts
+if [ -r $HOME/.ssh/known_hosts ]; then
+  local _myhosts
+  _myhosts=(${${${${(f)"$(cat $HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*})
+  zstyle ':completion:*' hosts $_myhosts
+  unset _myhosts
+fi
+
+local _NEW_KNOWN_HOSTS=~/.ssh/known_hosts.NEW
+alias ssh="{ [[ -f $_NEW_KNOWN_HOSTS ]] && warn $_NEW_KNOWN_HOSTS exists }; command ssh"
+alias sshnew="ssh -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile $_NEW_KNOWN_HOSTS'"
+alias scpnew="scp -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile $_NEW_KNOWN_HOSTS'"
+alias sshtmp="ssh -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile /dev/null'"
+alias scptmp="scp -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile /dev/null'"
+
+# vim:ft=zsh
