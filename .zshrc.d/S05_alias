@@ -14,4 +14,4 @@ alias NewMailboxes="find ~/Maildir/ -name '*:2,' -exec dirname {} \; | uniq"
 
 alias newmail="vim -c 'set textwidth=75' -c 'set filetype=mail'"
 
-#vim:ft=zsh
+# vim:ft=zsh
