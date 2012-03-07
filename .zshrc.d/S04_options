@@ -4,4 +4,4 @@ zle -N        edit-command-line
 bindkey '\ee' edit-command-line
 
 
-#vim:ft=zsh
+# vim:ft=zsh
