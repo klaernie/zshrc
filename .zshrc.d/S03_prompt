@@ -5,7 +5,7 @@ zstyle ':vcs_info:*' disable cvs svn bzr cdv darcs mtn tla hg p4 svk
 zstyle ':vcs_info:*' enable  git
 
 zstyle ':vcs_info:*' check-for-changes  true
-zstyle ':vcs_info:*' formats        "[$VCSH_REPO_NAME|%b%c%u]"
+zstyle ':vcs_info:*' formats        "[${VCSH_REPO_NAME}${VCSH_REPO_NAME:+|}%b%c%u]"
 zstyle ':vcs_info:*' actionformats  "[%b|%a]"
 zstyle ':vcs_info:*' stagedstr '●'
 zstyle ':vcs_info:*' unstagedstr '!'
