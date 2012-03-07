@@ -4,11 +4,11 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' disable cvs svn bzr cdv darcs mtn tla hg p4 svk
 zstyle ':vcs_info:*' enable  git
 
-zstyle ':vcs_info:*' check-for-changes  false
-zstyle ':vcs_info:*' formats        "[%b]"
+zstyle ':vcs_info:*' check-for-changes  true
+zstyle ':vcs_info:*' formats        "[$VCSH_REPO_NAME|%b%c%u]"
 zstyle ':vcs_info:*' actionformats  "[%b|%a]"
-zstyle ':vcs_info:*' stagedstr      "!"
-zstyle ':vcs_info:*' unstagedstr    "?"
+zstyle ':vcs_info:*' stagedstr '●'
+zstyle ':vcs_info:*' unstagedstr '!'
 
 function title {
   if [[ $TERM == "screen" ]]; then
@@ -64,7 +64,7 @@ function preexec() {
 }
 
 
-setopt prompt_subst
+setopt promptsubst
 
 PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
 RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
