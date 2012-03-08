@@ -70,6 +70,7 @@ if [[ "$HOSTNAME" != "ls2621" ]] then
 	yellow="%F{yellow}"
 fi
 
+setopt promptsubst
 
 PS1="%{%B${green}%}%(!..%n@)%m%b${green}(%y)%b${red}%1v${PSEXTRA}%f%b %{%B${yellow}%}%~ %f%B%#%b "
 #PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
