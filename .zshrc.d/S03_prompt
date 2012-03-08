@@ -69,6 +69,13 @@ setopt promptsubst
 PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
 RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
 
+if [[ "$HOSTNAME" == "ls2621" ]] then
+	PS1="${PS1/%F{green}/}"
+	PS1="${PS1/%F{red}/}"
+	PS1="${PS1/%F{yellow}/}"
+	RPROMPT="${RPROMPT/%F{red}/}"
+fi
+
 
 
 
