@@ -1,14 +1,17 @@
 
-autoload -Uz vcs_info
+autoload -U is-at-least
+if is-at-least 4.3.9; then
+	autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' disable cvs svn bzr cdv darcs mtn tla hg p4 svk
-zstyle ':vcs_info:*' enable  git
+	zstyle ':vcs_info:*' disable cvs svn bzr cdv darcs mtn tla hg p4 svk
+	zstyle ':vcs_info:*' enable  git
 
-zstyle ':vcs_info:*' check-for-changes  true
-zstyle ':vcs_info:*' formats        "[${VCSH_REPO_NAME}${VCSH_REPO_NAME:+|}%b%c%u]"
-zstyle ':vcs_info:*' actionformats  "[%b|%a]"
-zstyle ':vcs_info:*' stagedstr '●'
-zstyle ':vcs_info:*' unstagedstr '!'
+	zstyle ':vcs_info:*' check-for-changes  true
+	zstyle ':vcs_info:*' formats        "[${VCSH_REPO_NAME}${VCSH_REPO_NAME:+|}%b%c%u]"
+	zstyle ':vcs_info:*' actionformats  "[%b|%a]"
+	zstyle ':vcs_info:*' stagedstr '●'
+	zstyle ':vcs_info:*' unstagedstr '!'
+fi
 
 function title {
   if [[ $TERM == "screen" ]]; then
@@ -27,7 +30,9 @@ function precmd() {
 
   psvar=()
 
-  [[ "$HOSTNAME" != "ls2621" ]] && vcs_info
+  if is-at-least 4.3.9; then
+    vcs_info
+  fi
   [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
@@ -64,7 +69,7 @@ function preexec() {
 }
 
 
-if [[ "$HOSTNAME" != "ls2621" ]] then
+if is-at-least 4.3.9; then
 	green="%F{green}"
 	red="%F{red}"
 	yellow="%F{yellow}"
@@ -76,7 +81,7 @@ PS1="%{%B${green}%}%(!..%n@)%m%b${green}(%y)%b${red}%1v${PSEXTRA}%f%b %{%B${yell
 #PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
 
 RPROMPT="%B%(0?..${red}[%?]%f):%!"
-#RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
+# RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
 
 
 
