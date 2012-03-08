@@ -64,17 +64,20 @@ function preexec() {
 }
 
 
-setopt promptsubst
-
-PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
-RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
-
-if [[ "$HOSTNAME" == "ls2621" ]] then
-	PS1="${PS1/%F{green}/}"
-	PS1="${PS1/%F{red}/}"
-	PS1="${PS1/%F{yellow}/}"
-	RPROMPT="${RPROMPT/%F{red}/}"
+if [[ "$HOSTNAME" != "ls2621" ]] then
+	green="%F{green}"
+	red="%F{red}"
+	yellow="%F{yellow}"
 fi
+
+
+PS1="%{%B${green}%}%(!..%n@)%m%b${green}(%y)%b${red}%1v${PSEXTRA}%f%b %{%B${yellow}%}%~ %f%B%#%b "
+#PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
+
+RPROMPT="%B%(0?..${red}[%?]%f):%!"
+#RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
+
+
 
 
 
