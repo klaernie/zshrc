@@ -27,7 +27,7 @@ function precmd() {
 
   psvar=()
 
-  vcs_info
+  [[ "$HOSTNAME" != "ls2621" ]] && vcs_info
   [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
