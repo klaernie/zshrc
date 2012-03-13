@@ -12,4 +12,6 @@ bindkey "^[[B" down-line-or-history
 bindkey "^[OF" end-of-line
 bindkey "^[OH" beginning-of-line
 
+bindkey -a u undo
+
 # vim: ft=zsh
