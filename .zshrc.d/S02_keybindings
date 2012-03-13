@@ -12,6 +12,9 @@ bindkey "^[[B" down-line-or-history
 bindkey "^[OF" end-of-line
 bindkey "^[OH" beginning-of-line
 
+bindkey "\e[2~" overwrite-mode          # Ins
+bindkey "\e[3~" delete-char             # Delete
+
 bindkey -a u undo
 
 # vim: ft=zsh
