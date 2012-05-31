@@ -10,7 +10,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias mutt='echo -ne "\033]0;mutt:${USER}@`hostname`\007";mutt'
+#alias mutt='echo -ne "\033]0;mutt:${USER}@`hostname`\007";mutt'
 
 alias NewMailboxes="find ~/Maildir/ -name '*:2,' -exec dirname {} \; | uniq"
 
