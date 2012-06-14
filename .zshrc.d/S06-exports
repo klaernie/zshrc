@@ -9,7 +9,7 @@ then
 fi
 
 # if sap's proxy is available, use it
-if ping proxy.wdf.sap.corp -c1 >/dev/null 2>&1
+if host proxy.wdf.sap.corp >/dev/null 2>&1
 then
 	export https_proxy="http://proxy.wdf.sap.corp:8080"
 	export http_proxy="http://proxy.wdf.sap.corp:8080"
