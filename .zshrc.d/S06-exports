@@ -19,4 +19,9 @@ fi
 
 export NSS_DEFAULT_DB_TYPE="sql"
 
+if [ -f $HOME/.screenrc ]
+then
+	export SYSSCREENRC=/dev/null
+fi
+
 # vim: ft=zsh
