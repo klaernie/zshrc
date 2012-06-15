@@ -1,4 +1,6 @@
-export COLUMNS
+
+# conditional exports
+##########
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -19,12 +21,19 @@ then
 	export no_proxy="*.sap-ag.de, *.sap.corp, 127.0.0.0/8"
 fi
 
-export NSS_DEFAULT_DB_TYPE="sql"
-
+# override system-screenrc as mine can do better.
+# but only if it exists.
 if [ -f $HOME/.screenrc ]
 then
 	export SYSSCREENRC=/dev/null
 fi
->>>>>>> 1c6c85ff4a65f0c5f264b98af65cbe357cb9874e
+
+# always done exports
+##########
+
+export NSS_DEFAULT_DB_TYPE="sql"
+
+export COLUMNS
+
 
 # vim: ft=zsh
