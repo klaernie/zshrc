@@ -35,5 +35,7 @@ export NSS_DEFAULT_DB_TYPE="sql"
 
 export COLUMNS
 
+export EMAIL=kandre@ak-online.be
+
 
 # vim: ft=zsh
