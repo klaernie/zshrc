@@ -8,7 +8,7 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=99999999
-setopt appendhistory autocd beep notify
+setopt appendhistory autocd beep notify histignorealldups
 # End of lines configured by zsh-newuser-install
 
 #stolen from Penny - split things into smaller config files and then source them in order.
