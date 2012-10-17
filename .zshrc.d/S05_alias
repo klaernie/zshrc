@@ -22,4 +22,7 @@ alias umount_ls2621="export HOME=$OLDHOME && unset OLDHOME && cd && fusermount -
 # alias to renice shell-fm to prevent others from interrupting the audio
 alias renice_shell-fm="sudo renice -5 `pidof shell-fm`"
 
+# make qmv behave like qmv --format=do by default
+alias qmv="qmv --format=do"
+
 # vim:ft=zsh
