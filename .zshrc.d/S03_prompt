@@ -70,17 +70,27 @@ function preexec() {
 
 
 if is-at-least 4.3.9; then
-	green="%F{green}"
+	hred=$'\e[91m'
 	red="%F{red}"
+	hgreen=$'\e[92m'
+	green="%F{green}"
+	hyellow=$'\e[93m'
 	yellow="%F{yellow}"
+else
+	hred=$'\e[91m'
+	red=$'\e[31m'
+	hgreen=$'\e[92m'
+	green=$'\e[32m'
+	hyellow=$'\e[93m'
+	yellow=$'\e[33m'
 fi
 
 setopt promptsubst
 
-PS1="%{%B${green}%}%(!..%n@)%m%b${green}(%y)%b${red}%1v${PSEXTRA}%f%b %{%B${yellow}%}%~ %f%B%#%b "
+PS1="%{%B${hgreen}%}%(!..%n@)%m%b${green}(%y)%b${red}%1v${PSEXTRA}%f%b %{%B${hyellow}%}%~ %f%B%#%b "
 #PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
 
-RPROMPT="%B%(0?..${red}[%?]%f):%!"
+RPROMPT="%B%(0?..%{${hred}%}[%?]%f):%!"
 # RPROMPT="%B%(0?..%F{red}[%?]%f):%!"
 
 
