@@ -15,7 +15,7 @@ if is-at-least 4.3.9; then
 fi
 
 function title {
-  if [[ $TERM =~ "screen.*" ]]; then
+  if [[ $TERM = screen* ]]; then
     # Use these two for GNU Screen:
     print -nR $'\033k'$1$'\033'\\
 
