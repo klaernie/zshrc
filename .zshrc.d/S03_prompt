@@ -90,7 +90,7 @@ fi
 
 setopt promptsubst
 
-PS1="%{%B${hgreen}%}%(!..%n@)%m%{%b%}${green}(%y)%{%b${red}%}%1v${PSEXTRA}%{${resetcolor}%b%} %{%B${hyellow}%}%~ %{${resetcolor}%B%}%(!.%{${hred}%}#%{${resetcolor}%}.%%)%{%b%} "
+PS1="%{%B${hgreen}%}%(!..%n@)%m%{%b${green}%}(%y)%{%b${red}%}%1v${PSEXTRA}%{${resetcolor}%b%} %{%B${hyellow}%}%~ %{${resetcolor}%B%}%(!.%{${hred}%}#%{${resetcolor}%}.%%)%{%b%} "
 #PS1="%{%B%F{green}%}%(!..%n@)%m%b%F{green}(%y)%b%F{red}%1v${PSEXTRA}%f%b %{%B%F{yellow}%}%~ %f%B%#%b "
 
 RPROMPT="%{%B%}%(0?..%{${hred}%}[%?]%{${resetcolor}%}):%!"
