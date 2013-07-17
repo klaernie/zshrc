@@ -71,22 +71,28 @@ function preexec() {
 
 
 if is-at-least 4.3.9; then
-	hred=$'\e[91m'
 	red="%F{red}"
-	hgreen=$'\e[92m'
 	green="%F{green}"
-	hyellow=$'\e[93m'
 	yellow="%F{yellow}"
 	resetcolor="%f"
 else
-	hred=$'\e[91m'
 	red=$'\e[31m'
-	hgreen=$'\e[92m'
 	green=$'\e[32m'
-	hyellow=$'\e[93m'
 	yellow=$'\e[33m'
 	resetcolor=$'\e[39m'
 fi
+case $(echotc Co) in
+	8)
+		hred=$'\e[31m'
+		hgreen=$'\e[32m'
+		hyellow=$'\e[33m'
+		;;
+	16|256)
+		hred=$'\e[91m'
+		hgreen=$'\e[92m'
+		hyellow=$'\e[93m'
+		;;
+esac
 
 setopt promptsubst
 
