@@ -37,5 +37,7 @@ export COLUMNS
 
 export EMAIL=kandre@ak-online.be
 
+export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' -c 'map <SPACE> <C-D>' -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
 
 # vim: ft=zsh
