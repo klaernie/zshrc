@@ -1,0 +1,6 @@
+# run vim with a :help fullscreen
+# thanks to paradigm @ Freenode/#vim
+vimhelp(){vim -c ":help $1|wincmd T|tabn|q"}
+
+# vim: ft=zsh
+
