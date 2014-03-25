@@ -17,4 +17,6 @@ bindkey "\e[3~" delete-char             # Delete
 
 bindkey -a u undo
 
+bindkey "^_"  insert-last-word
+
 # vim: ft=zsh
