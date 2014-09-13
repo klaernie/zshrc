@@ -29,6 +29,7 @@ zstyle ':completion:*' group-name ''
 compdef _precommand gdb
 compdef _precommand nohup
 compdef _precommand strace
+compdef _precommand sudo
 
 # be magic about adding/removing final characters on tab completion
 setopt auto_param_keys auto_param_slash auto_remove_slash
