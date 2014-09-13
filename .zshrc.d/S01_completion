@@ -39,9 +39,6 @@ setopt auto_list
 # use menu after the second completion request
 setopt auto_menu
 
-# recognise exact matches even if they're ambiguous
-setopt rec_exact
-
 # move cursor to end of word being completed
 setopt always_to_end
 
