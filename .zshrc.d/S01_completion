@@ -29,6 +29,7 @@ zstyle ':completion:*' group-name ''
 compdef _precommand gdb
 compdef _precommand nohup
 compdef _precommand strace
+compdef _precommand sudo
 
 # be magic about adding/removing final characters on tab completion
 setopt auto_param_keys auto_param_slash auto_remove_slash
@@ -38,9 +39,6 @@ setopt auto_list
 
 # use menu after the second completion request
 setopt auto_menu
-
-# recognise exact matches even if they're ambiguous
-setopt rec_exact
 
 # move cursor to end of word being completed
 setopt always_to_end
