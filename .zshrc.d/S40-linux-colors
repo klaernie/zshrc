@@ -1,0 +1,4 @@
+# vim:ft=zsh
+
+[[ $TERM = linux* ]] && [[ -e "$HOME/.Xresources" ]] &&
+perl -ne '/color([0-9]+):.*#([0-9a-fA-F]+)$/ && printf "\e]P%x%s", $1, $2' < $HOME/.Xresources 
