@@ -94,6 +94,7 @@ case $(echotc Co) in
 		;;
 esac
 
+# the prompt is allowed to evaluate variables
 setopt promptsubst
 
 PS1="%{%B${hgreen}%}%(!..%n@)%m%{%b${green}%}(%y)%{%b${red}%}%1v${PSEXTRA}%{${resetcolor}%b%} %{%B${hyellow}%}%~ %{${resetcolor}%B%}%(!.%{${hred}%}#%{${resetcolor}%}.%%)%{%b%} "
