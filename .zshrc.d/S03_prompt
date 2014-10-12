@@ -94,6 +94,11 @@ case $(echotc Co) in
 		;;
 esac
 
+# terminate a line from the last commands output
+# if there was no final newline in it
+setopt PROMPT_SP
+setopt PROMPT_CR
+
 # the prompt is allowed to evaluate variables
 setopt promptsubst
 
