@@ -1,0 +1,10 @@
+# override $TERM if the SSH client is pointing to my SAP machine
+##########
+
+sshhost="$(dig +short -x $(echo $SSH_CLIENT|awk '{print $1}'))"
+if [[ "$sshhost" = "DRSN00352576A.emea.global.corp.sap." ]] ; then
+	export TERM=xterm-256color
+fi
+unset sshhost
+
+# vim: ft=zsh
