@@ -23,4 +23,13 @@ alias scpnew="scp -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile $_NEW_KNO
 alias sshtmp="ssh -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile /dev/null'"
 alias scptmp="scp -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile /dev/null'"
 
+function refresh_ssh_keys {
+	if ! ssh-add -l >/dev/null 2>&1 ; then
+		for candidate in /tmp/ssh**/agent*(U); do
+			export SSH_AUTH_SOCK="$candidate"
+			ssh-add -l 2>/dev/null && break
+		done
+	fi
+}
+
 # vim:ft=zsh
