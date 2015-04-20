@@ -38,6 +38,6 @@ export COLUMNS
 export EMAIL=kandre@ak-online.be
 
 export MANPAGER="/bin/sh -c \"unset PAGER; vim -R -c 'set ft=man nomod nolist nowrap nohlsearch' -c 'map q :q<CR>' -c 'map <SPACE> <C-D>' -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -c ':AnsiEsc' -\""
-
+export MANPATH="$HOME/.local/share/man:$MANPATH"
 
 # vim: ft=zsh
