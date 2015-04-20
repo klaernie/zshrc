@@ -41,7 +41,7 @@ function preexec() {
   # as in http://zshwiki.org/home/examples/hardstatus
   emulate -L zsh
   local -a cmd; cmd=(${(z)1})             # Re-parse the command line
-  
+
   # Construct a command that will output the desired job number.
   case $cmd[1] in
       fg)
@@ -59,9 +59,9 @@ function preexec() {
       *)  title $cmd[1]:t "$cmd[2,-1]"    # Not resuming a job,
           return;;                        # so we're all done
       esac
-  
+
   local -A jt; jt=(${(kv)jobtexts})       # Copy jobtexts for subshell
-  
+
   # Run the command, read its output, and look up the jobtext.
   # Could parse $rest here, but $jobtexts (via $jt) is easier.
   $cmd >>(read num rest
