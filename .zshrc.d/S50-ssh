@@ -11,7 +11,7 @@
 # populate hosts completion with SSH's known_hosts
 if [ -r $HOME/.ssh/known_hosts ]; then
   local _myhosts
-  _myhosts=(${${${${(f)"$(cat $HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*})
+  _myhosts=(${${(ps: :)${(pj: :)${(f)"$(cat $HOME/.ssh/known_hosts)"}%%\ *}//,/ }:#[0-9]*})
   zstyle ':completion:*' hosts $_myhosts
   unset _myhosts
 fi
