@@ -31,5 +31,15 @@ function refresh_ssh_keys {
 		done
 	fi
 }
+function refresh_ssh_keys_conditionally {
+	emulate -L zsh
+	local -a cmd; cmd=(${(z)1})
+
+	if [[ $cmd[1] = ssh* || $cmd[1] = git* ]]; then
+		refresh_ssh_keys
+	fi
+}
+autoload -U add-zsh-hook
+add-zsh-hook preexec refresh_ssh_keys_conditionally
 
 # vim:ft=zsh
