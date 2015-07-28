@@ -2,6 +2,8 @@
 # conditional exports
 ##########
 
+export SHELL=$(readlink /proc/$$/exe)
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] && ! echo "$PATH" | grep -q "$HOME/bin:"; then
 	PATH="$HOME/bin:$PATH"
