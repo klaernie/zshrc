@@ -15,8 +15,8 @@ elif [ -f /etc/SuSE-release ]; then
 	OS="sles$(awk '/VERSION/{print $3}'</etc/SuSE-release )"
 fi
 
-if [ "$OS" != "OS" ]; then
-	export PATH=$HOME/bin/$OS:$PATH
+if [ "$OS" != "OS" ] && ! echo "$PATH" | grep -q "$HOME/bin/$OS:"; then
+	export PATH="$HOME/bin/$OS:$PATH"
 fi
 
 if [ -d "$HOME/SAPGUI" ]
