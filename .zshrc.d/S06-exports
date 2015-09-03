@@ -4,6 +4,13 @@
 
 export SHELL=$(readlink /proc/$$/exe)
 
+if ! echo "$PATH" | grep -q -e "^/sbin:" -e ":/sbin:"; then
+	PATH="/sbin:$PATH"
+fi
+if ! echo "$PATH" | grep -q "/usr/sbin:"; then
+	PATH="/usr/sbin:$PATH"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] && ! echo "$PATH" | grep -q "$HOME/bin:"; then
 	PATH="$HOME/bin:$PATH"
