@@ -24,11 +24,13 @@ alias sshtmp="ssh -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile /dev/null
 alias scptmp="scp -o 'StrictHostKeyChecking no' -o 'UserKnownHostsFile /dev/null'"
 
 function refresh_ssh_keys {
-	if ! ssh-add -l >/dev/null 2>&1 ; then
-		for candidate in /tmp/ssh**/agent*(U); do
-			export SSH_AUTH_SOCK="$candidate"
-			ssh-add -l 2>/dev/null && break
-		done
+	if [ -n "$SSH_CONNECTION" ]; then
+		if ! ssh-add -l >/dev/null 2>&1 ; then
+			for candidate in /tmp/ssh**/agent*(U); do
+				export SSH_AUTH_SOCK="$candidate"
+				ssh-add -l 2>/dev/null && break
+			done
+		fi
 	fi
 }
 function refresh_session {
@@ -40,7 +42,7 @@ function refresh_session {
 	fi
 
 	# reload DISPLAY from the master screen process
-	if [[ -n "$STY" ]]; then
+	if [[ -n "$STY" ]] && [[ -n "$SSH_CONNECTION" ]]; then
 		export $(tr '\0' '\n' </proc/${STY%%.*}/environ|grep '^DISPLAY')
 	fi
 }
