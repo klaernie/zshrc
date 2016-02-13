@@ -43,7 +43,10 @@ function refresh_session {
 
 	# reload DISPLAY from the master screen process
 	if [[ -n "$STY" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-		export $(tr '\0' '\n' </proc/${STY%%.*}/environ|grep '^DISPLAY')
+		newdisplay=$(tr '\0' '\n' </proc/${STY%%.*}/environ|grep '^DISPLAY')
+		if [[ -n "$newdisplay" ]]; then
+			export $newdisplay
+		fi
 	fi
 }
 autoload -U add-zsh-hook
