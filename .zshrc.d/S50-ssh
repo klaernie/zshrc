@@ -41,16 +41,16 @@ function refresh_session {
 		refresh_ssh_keys
 	fi
 
-	# reload DISPLAY from the master screen process
-	if [[ -n "$STY" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-		envfile=/proc/${STY%%.*}/environ
-		if [[ -r "$envfile" ]]; then
-			newdisplay=$(tr '\0' '\n' <$envfile|grep '^DISPLAY')
-			if [[ -n "$newdisplay" ]]; then
-				export $newdisplay
-			fi
-		fi
-	fi
+	## reload DISPLAY from the master screen process
+	#if [[ -n "$STY" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+	#	envfile=/proc/${STY%%.*}/environ
+	#	if [[ -r "$envfile" ]]; then
+	#		newdisplay=$(tr '\0' '\n' <$envfile|grep '^DISPLAY')
+	#		if [[ -n "$newdisplay" ]]; then
+	#			export $newdisplay
+	#		fi
+	#	fi
+	#fi
 }
 autoload -U add-zsh-hook
 add-zsh-hook preexec refresh_session
