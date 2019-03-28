@@ -1,0 +1,10 @@
+# vim: ft=zsh
+
+function upto {
+	# what is the directory we want to go to?
+	dir=$1
+
+	while [[ "$(basename "$(pwd)")" != "$dir" ]] && [[ "$(pwd)" != "/" ]]; do
+		cd ..
+	done
+}
