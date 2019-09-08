@@ -33,15 +33,6 @@ then
 	PATH="$PATH:$HOME/SAPGUI/SAPGUI/bin"
 fi
 
-# if sap's proxy is available, use it
-if host proxy.wdf.sap.corp >/dev/null 2>&1
-then
-	export https_proxy="http://proxy.wdf.sap.corp:8080"
-	export http_proxy="http://proxy.wdf.sap.corp:8080"
-	export ftp_proxy="http://proxy.wdf.sap.corp:8080"
-	export no_proxy="*.sap-ag.de, *.sap.corp, 127.0.0.0/8"
-fi
-
 # override system-screenrc as mine can do better.
 # but only if it exists.
 if [ -f $HOME/.screenrc ]
