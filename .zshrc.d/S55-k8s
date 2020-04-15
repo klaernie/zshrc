@@ -1,0 +1,5 @@
+# vim:ft=zsh
+
+which kubeadm >/dev/null && source <(kubeadm completion zsh)
+which kubectl >/dev/null && source <(kubectl completion zsh)
+
