@@ -33,6 +33,10 @@ then
 	PATH="$PATH:$HOME/SAPGUI/SAPGUI/bin"
 fi
 
+if [ -d "$HOME/.local/bin" ] && ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
+	PATH="$PATH:$HOME/.local/bin"
+fi
+
 # override system-screenrc as mine can do better.
 # but only if it exists.
 if [ -f $HOME/.screenrc ]
