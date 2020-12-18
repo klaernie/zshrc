@@ -1,3 +1,4 @@
+# vim: set ft=zsh :
 if [[ -n "$DPKG_SHELL_REASON" ]]; then
 	exec vimdiff "$DPKG_CONFFILE_OLD" "$DPKG_CONFFILE_NEW"
 fi
