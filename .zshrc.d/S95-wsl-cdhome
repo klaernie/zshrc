@@ -1,0 +1,4 @@
+# vim: set ft=zsh :
+if [[ "$(pwd)" = /mnt/c/Users/D060626 ]]; then
+	cd $HOME
+fi
