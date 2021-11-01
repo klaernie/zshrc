@@ -3,3 +3,6 @@
 if [[ -n "$DPKG_SHELL_REASON" ]]; then
 	exec vimdiff "$DPKG_CONFFILE_OLD" "$DPKG_CONFFILE_NEW"
 fi
+if [[ -n "$UCF_CONFFILE_OLD" ]] && [[ -n "$UCF_CONFFILE_NEW" ]]; then
+	exec vimdiff "$UCF_CONFFILE_OLD" "$UCF_CONFFILE_NEW"
+fi
