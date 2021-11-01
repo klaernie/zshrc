@@ -25,4 +25,6 @@ alias umount_ls2621="export HOME=$OLDHOME && unset OLDHOME && cd && fusermount -
 # make qmv behave like qmv --format=do by default
 alias qmv="qmv --format=do"
 
+alias ssh_old="ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oCiphers=3des-cbc"
+
 # vim:ft=zsh
