@@ -1,0 +1,8 @@
+# vim: set ft=zsh :
+WSL1=
+WSL2=
+if [[ "$(uname -r)" = *microsoft* ]]; then
+	WSL2=true
+elif [[ "$(uname -r)" = *Microsoft* ]]; then
+	WSL1=true
+fi
