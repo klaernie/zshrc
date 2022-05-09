@@ -1,2 +1,2 @@
 # vim: set ft=zsh :
-test -n "$WSL1" && test -d /run/screen || sudo install -d -m 777 /run/screen
+test -n "$WSL1" && test -d /run/screen || sudo /etc/init.d/screen-cleanup start
