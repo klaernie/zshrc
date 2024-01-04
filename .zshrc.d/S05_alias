@@ -27,4 +27,6 @@ alias qmv="qmv --format=do"
 
 alias ssh_old="ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oCiphers=3des-cbc -oHostKeyAlgorithms=+ssh-rsa"
 
+alias proton_standalone='STEAM_COMPAT_CLIENT_INSTALL_PATH=$HOME/.steam/steam STEAM_COMPAT_DATA_PATH=$HOME/.standalone_proton "/media/Seven/Steam/steamapps/common/Proton - Experimental/proton" waitforexitandrun'
+
 # vim:ft=zsh
