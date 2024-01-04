@@ -2,4 +2,6 @@
 
 which kubeadm >/dev/null && source <(kubeadm completion zsh)
 which kubectl >/dev/null && source <(kubectl completion zsh)
+which talosctl >/dev/null && source <(talosctl completion zsh)
+#which kgctl >/dev/null && source <(kgctl completion zsh)
 
