@@ -11,6 +11,11 @@ if ! echo "$PATH" | grep -q "/usr/sbin:"; then
 	PATH="/usr/sbin:$PATH"
 fi
 
+# include the go installed binaries
+if [ -d "$HOME/go/bin" ] && ! echo "$PATH" | grep -q "$HOME/go/bin:"; then
+	PATH="$HOME/go/bin:$PATH"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] && ! echo "$PATH" | grep -q "$HOME/bin:"; then
 	PATH="$HOME/bin:$PATH"
