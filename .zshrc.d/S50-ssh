@@ -33,6 +33,11 @@ function refresh_ssh_keys {
 		fi
 	fi
 }
+
+if [ "$(uname)" = Darwin ] && [ -S $HOME/.gnupg/S.gpg-agent.ssh ] ; then
+	export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+fi
+
 function refresh_session {
 	emulate -L zsh
 	local -a cmd; cmd=(${(z)1})
