@@ -10,6 +10,9 @@ fi
 if ! echo "$PATH" | grep -q "/usr/sbin:"; then
 	PATH="/usr/sbin:$PATH"
 fi
+if ! echo "$PATH" | grep -q "$HOME/brew/bin:"; then
+	PATH="$HOME/brew/bin:$PATH"
+fi
 
 # include the go installed binaries
 if [ -d "$HOME/go/bin" ] && ! echo "$PATH" | grep -q "$HOME/go/bin:"; then
