@@ -1,2 +1,5 @@
 # vim: set ft=zsh :
-test -n "$WSL1" && test -d /run/screen || sudo /etc/init.d/screen-cleanup start
+test -n "$WSL1" \
+&& test ! -d /run/screen \
+&& test -x /etc/init.d/screen-cleanup \
+&& sudo /etc/init.d/screen-cleanup start
