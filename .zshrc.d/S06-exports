@@ -66,6 +66,9 @@ export NSS_DEFAULT_DB_TYPE="sql"
 
 export COLUMNS
 
+# MacOS `ls` will show colors
+export CLICOLORS=1
+
 export EMAIL=kandre@ak-online.be
 export DEBEMAIL="kandre@ak-online.be"
 export DEBFULLNAME="Andre Klärner"
